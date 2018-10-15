@@ -1,0 +1,35 @@
+& para decir que es un identificador
+ls >&4 
+
+Identificadores de archivos: Interfaces que permiten manejar archivos
+Para cerrar un descriptor de archivo   exec 4<&- (#descriptor<&-)
+exec 5< prueba2  (Descriptor de salida)
+exec 5> prueba2 (Descriptor de entrada)
+ct <&5 lo que hay en el descriptor 5 lo manda a cat 
+
+
+<> Para entrada y salida a la vez
+exec 6<> prueba.log
+cat <&6
+nano prueba.log 
+
+
+ls /home/prebes 1> log.log
+
+
+NUmero maximo de descriptores de archivo que podemos tener
+cat /proc/sys/fs/file-max
+
+
+Descriptores usados y total de descriptores
+cat /proc/sys/fs/file-nm
+
+
+QUe tantos descriptores puede manejar un proceso
+ulimit -n
+
+Investigar HFS (Super moral)
+
+
+Para configurar el numero maximo de descriptores
+sysctl -w fs.file-max=200 (SI le ponemos un numero menor a la cantidad de descriptores que tenemos en uso  muere el sistema de archivos) NO TIRAR ESTE COMANDO
